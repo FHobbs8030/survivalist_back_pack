@@ -59,12 +59,12 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ---
 
-## 🤝 Contributing
+<!-- ## 🤝 Contributing
 Contributions are welcome! Here’s how you can help:
 1. Fork the repository.
 2. Create a new branch for your feature or bug fix.
 3. Commit your changes and push them to your fork.
-4. Open a pull request to the main repository.
+4. Open a pull request to the main repository. -->
 
 ---
 
