@@ -1,38 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Survival Backpack</title>
     <style>
-    body {
+      body {
         font-family: Arial, sans-serif;
         margin: 20px;
         padding: 0;
         background-color: #000; /* Set background to black */
         color: #fff; /* Set text color to white */
-    }
+      }
 
-    h1, h2 {
+      h1,
+      h2 {
         text-align: center;
         color: #fff; /* Ensure headings are white */
-    }
+      }
 
-    #backpack, #removedItems, #addItemForm {
+      #backpack,
+      #removedItems,
+      #addItemForm {
         margin: 20px auto;
         padding: 20px;
-        border: 2px solid #8B4513;
+        border: 2px solid #8b4513;
         border-radius: 10px;
         max-width: 800px;
         background-color: #333; /* Darker background for contrast */
         color: #fff; /* Text inside containers set to white */
-    }
+      }
 
-    .category {
+      .category {
         margin-bottom: 20px;
-    }
+      }
 
-    .item {
+      .item {
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -42,14 +45,14 @@
         border-radius: 5px;
         background-color: #444; /* Darker background for items */
         color: #fff; /* Text color for items */
-    }
+      }
 
-    .item span {
+      .item span {
         flex-grow: 1;
         margin-left: 10px;
-    }
+      }
 
-    .item img {
+      .item img {
         width: 60px;
         height: 60px;
         margin-right: 10px;
@@ -57,73 +60,177 @@
         border: 1px solid #ccc;
         background-color: #fff;
         text-align: center;
-    }
+      }
 
-    button {
+      button {
         padding: 5px 10px;
         background-color: #ff6347;
         color: white;
         border: none;
         border-radius: 5px;
         cursor: pointer;
-    }
+      }
 
-    button:hover {
+      button:hover {
         background-color: #ff4500;
-    }
-</style>
-</head>
-<body>
+      }
+    </style>
+  </head>
+  <body>
     <h1>Survivalist Backpack</h1>
 
     <div id="backpack">
-        <h2>Backpack Items</h2>
-        <div id="totalWeight">Total Weight: 0 lbs</div>
-        <div id="totalVolume">Total Volume: 0 L</div>
+      <h2>Backpack Items</h2>
+      <div id="totalWeight">Total Weight: 0 lbs</div>
+      <div id="totalVolume">Total Volume: 0 L</div>
     </div>
 
     <div id="removedItems">
-        <h2>Removed Items</h2>
-        <div id="removedItemsContainer"></div>
+      <h2>Removed Items</h2>
+      <div id="removedItemsContainer"></div>
     </div>
 
     <div id="addItemForm">
-        <h2>Add New Item</h2>
-        <form id="addItem">
-            <label for="itemName">Name:</label>
-            <input type="text" id="itemName" required>
-            <label for="itemCategory">Category:</label>
-            <input type="text" id="itemCategory" required>
-            <label for="itemWeight">Weight (lbs):</label>
-            <input type="number" id="itemWeight" step="0.1" required>
-            <label for="itemVolume">Volume (L):</label>
-            <input type="number" id="itemVolume" step="0.1" required>
-            <label for="itemImage">Image URL:</label>
-            <input type="text" id="itemImage">
-            <button type="submit">Add Item</button>
-        </form>
+      <h2>Add New Item</h2>
+      <form id="addItem">
+        <label for="itemName">Name:</label>
+        <input type="text" id="itemName" required />
+        <label for="itemCategory">Category:</label>
+        <input type="text" id="itemCategory" required />
+        <label for="itemWeight">Weight (lbs):</label>
+        <input type="number" id="itemWeight" step="0.1" required />
+        <label for="itemVolume">Volume (L):</label>
+        <input type="number" id="itemVolume" step="0.1" required />
+        <label for="itemImage">Image URL:</label>
+        <input type="text" id="itemImage" />
+        <button type="submit">Add Item</button>
+      </form>
     </div>
 
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-     const defaultItems = [
-                { name: "Tent", category: "Shelter", weight: 5, volume: 10, image: "https://whiteduckoutdoors.com/cdn/shop/files/10-regatta-bell-tent-main-image.jpg?v=1706511565" },
-                { name: "Sleeping Bag", category: "Shelter", weight: 3, volume: 8, image: "https://m.media-amazon.com/images/I/71vXaSv8N6L._AC_SL1500_.jpg" },
-                { name: "Water Filter", category: "Water", weight: 1, volume: 1, image: "https://m.media-amazon.com/images/I/51YPvpa7xuL._SL1500_.jpg" },
-                { name: "Water Bottle", category: "Water", weight: 0.5, volume: 1, image: "https://m.media-amazon.com/images/I/61Or5gBRFYL._AC_SL1500_.jpg" },
-                { name: "First Aid Kit", category: "First Aid", weight: 2, volume: 3, image: "https://m.media-amazon.com/images/I/819dwIfFDrL._AC_SL1500_.jpg" },
-                { name: "Compass", category: "Navigation", weight: 0.2, volume: 0.1, image: "https://m.media-amazon.com/images/I/717vYx70wXL._AC_SL1500_.jpg" },
-                { name: "Knife", category: "Tools", weight: 0.5, volume: 0.1, image: "https://m.media-amazon.com/images/I/715CG3UswkL._AC_SL1500_.jpg" },
-                { name: "Lighter", category: "Fire Starting", weight: 0.1, volume: 0.05, image: "https://m.media-amazon.com/images/I/81DxGH0nNrL._AC_SL1500_.jpg" },
-                { name: "Matches (Waterproof)", category: "Fire Starting", weight: 0.2, volume: 0.1, image: "https://m.media-amazon.com/images/I/81BJYQpXCML._AC_SL1500_.jpg" },
-                { name: "Ferro Rod", category: "Fire Starting", weight: 0.3, volume: 0.1, image: "https://m.media-amazon.com/images/I/7139QIaoWRL._AC_SL1500_.jpg" },
-                { name: "Dried Fruit", category: "Food", weight: 0.5, volume: 0.5, image: "https://m.media-amazon.com/images/I/71d6sb4V7yL._SL1500_.jpg" },
-                { name: "Trail Mix", category: "Food", weight: 1, volume: 1, image: "https://m.media-amazon.com/images/I/8105V3rqC5L._SL1500_.jpg" },
-                { name: "Ramen Noodles", category: "Food", weight: 0.3, volume: 0.5, image: "https://m.media-amazon.com/images/I/81TGbcqCiGS._SL1500_.jpg" },
-                { name: "Energy Bars", category: "Food", weight: 0.25, volume: 0.2, image: "https://m.media-amazon.com/images/I/81F21xb1YCL._SL1500_.jpg" },
-                { name: "Canned Beans", category: "Food", weight: 1.5, volume: 0.75, image: "https://m.media-amazon.com/images/I/71E+574iU7L._SL1500_.jpg" }
-            ];
-
+    document.addEventListener("DOMContentLoaded", () => {
+    const defaultItems = [
+          {
+            name: "Tent",
+            category: "Shelter",
+            weight: 5,
+            volume: 10,
+            image:
+              "https://whiteduckoutdoors.com/cdn/shop/files/10-regatta-bell-tent-main-image.jpg?v=1706511565",
+          },
+          {
+            name: "Sleeping Bag",
+            category: "Shelter",
+            weight: 3,
+            volume: 8,
+            image:
+              "https://m.media-amazon.com/images/I/71vXaSv8N6L._AC_SL1500_.jpg",
+          },
+          {
+            name: "Water Filter",
+            category: "Water",
+            weight: 1,
+            volume: 1,
+            image:
+              "https://m.media-amazon.com/images/I/51YPvpa7xuL._SL1500_.jpg",
+          },
+          {
+            name: "Water Bottle",
+            category: "Water",
+            weight: 0.5,
+            volume: 1,
+            image:
+              "https://m.media-amazon.com/images/I/61Or5gBRFYL._AC_SL1500_.jpg",
+          },
+          {
+            name: "First Aid Kit",
+            category: "First Aid",
+            weight: 2,
+            volume: 3,
+            image:
+              "https://m.media-amazon.com/images/I/819dwIfFDrL._AC_SL1500_.jpg",
+          },
+          {
+            name: "Compass",
+            category: "Navigation",
+            weight: 0.2,
+            volume: 0.1,
+            image:
+              "https://m.media-amazon.com/images/I/717vYx70wXL._AC_SL1500_.jpg",
+          },
+          {
+            name: "Knife",
+            category: "Tools",
+            weight: 0.5,
+            volume: 0.1,
+            image:
+              "https://m.media-amazon.com/images/I/715CG3UswkL._AC_SL1500_.jpg",
+          },
+          {
+            name: "Lighter",
+            category: "Fire Starting",
+            weight: 0.1,
+            volume: 0.05,
+            image:
+              "https://m.media-amazon.com/images/I/81DxGH0nNrL._AC_SL1500_.jpg",
+          },
+          {
+            name: "Matches (Waterproof)",
+            category: "Fire Starting",
+            weight: 0.2,
+            volume: 0.1,
+            image:
+              "https://m.media-amazon.com/images/I/81BJYQpXCML._AC_SL1500_.jpg",
+          },
+          {
+            name: "Ferro Rod",
+            category: "Fire Starting",
+            weight: 0.3,
+            volume: 0.1,
+            image:
+              "https://m.media-amazon.com/images/I/7139QIaoWRL._AC_SL1500_.jpg",
+          },
+          {
+            name: "Dried Fruit",
+            category: "Food",
+            weight: 0.5,
+            volume: 0.5,
+            image:
+              "https://m.media-amazon.com/images/I/71d6sb4V7yL._SL1500_.jpg",
+          },
+          {
+            name: "Trail Mix",
+            category: "Food",
+            weight: 1,
+            volume: 1,
+            image:
+              "https://m.media-amazon.com/images/I/8105V3rqC5L._SL1500_.jpg",
+          },
+          {
+            name: "Ramen Noodles",
+            category: "Food",
+            weight: 0.3,
+            volume: 0.5,
+            image:
+              "https://m.media-amazon.com/images/I/81TGbcqCiGS._SL1500_.jpg",
+          },
+          {
+            name: "Energy Bars",
+            category: "Food",
+            weight: 0.25,
+            volume: 0.2,
+            image:
+              "https://m.media-amazon.com/images/I/81F21xb1YCL._SL1500_.jpg",
+          },
+          {
+            name: "Canned Beans",
+            category: "Food",
+            weight: 1.5,
+            volume: 0.75,
+            image:
+              "https://m.media-amazon.com/images/I/71E+574iU7L._SL1500_.jpg",
+          },
+        ];
 
     let items = [...defaultItems];
     let removedItems = [];
@@ -134,36 +241,19 @@
     const totalVolumeDisplay = document.getElementById("totalVolume");
     const addItemForm = document.getElementById("addItem");
 
-    // Define placeholder images
-    const placeholderImages = {
-        Shelter: "https://example.com/placeholders/shelter.png",
-        Water: "https://example.com/placeholders/water.png",
-        Food: "https://example.com/placeholders/food.png",
-        Tools: "https://example.com/placeholders/tools.png",
-        Default: "https://example.com/placeholders/default.png"
-    };
-
-    // Get placeholder image based on category
-    function getPlaceholderImage(category) {
-        return placeholderImages[category] || placeholderImages.Default;
-    }
-
-    // Validate if the provided image URL is valid
-    function isValidImage(url) {
-        return new Promise((resolve) => {
-            const img = new Image();
-            img.onload = () => resolve(true);
-            img.onerror = () => resolve(false);
-            img.src = url;
-        });
-    }
-
     function calculateTotals() {
-        const totalWeight = items.reduce((sum, item) => sum + item.weight, 0);
-        const totalVolume = items.reduce((sum, item) => sum + item.volume, 0);
+        if (items.length === 0) {
+            // Reset scale to 0 if no items are in the backpack
+            totalWeightDisplay.textContent = `Total Weight: 0 lbs`;
+            totalVolumeDisplay.textContent = `Total Volume: 0 L`;
+        } else {
+            // Calculate total weight and volume
+            const totalWeight = items.reduce((sum, item) => sum + item.weight, 0);
+            const totalVolume = items.reduce((sum, item) => sum + item.volume, 0);
 
-        totalWeightDisplay.textContent = `Total Weight: ${totalWeight} lbs`;
-        totalVolumeDisplay.textContent = `Total Volume: ${totalVolume} L`;
+            totalWeightDisplay.textContent = `Total Weight: ${totalWeight.toFixed(2)} lbs`;
+            totalVolumeDisplay.textContent = `Total Volume: ${totalVolume.toFixed(2)} L`;
+        }
     }
 
     function displayItems() {
@@ -240,18 +330,19 @@
         const volume = parseFloat(document.getElementById("itemVolume").value);
         const imageUrl = document.getElementById("itemImage").value.trim();
 
-        const isValid = imageUrl ? await isValidImage(imageUrl) : false;
-        const image = isValid ? imageUrl : getPlaceholderImage(category);
+        const image = imageUrl || "https://via.placeholder.com/60"; // Use placeholder if no image URL is provided
 
         items.push({ name, category, weight, volume, image });
+        calculateTotals(); // Update totals after adding an item
         addItemForm.reset();
         displayItems();
     });
 
-    displayItems();
-    displayRemovedItems();
+    displayItems(); // Display default items
+    calculateTotals(); // Ensure totals are calculated on page load
+    displayRemovedItems(); // Clear removed items display
 });
 
     </script>
-</body>
+  </body>
 </html>
