@@ -5,69 +5,73 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Survival Backpack</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        padding: 0;
+        background-color: #000; /* Set background to black */
+        color: #fff; /* Set text color to white */
+    }
 
-        h1, h2 {
-            text-align: center;
-        }
+    h1, h2 {
+        text-align: center;
+        color: #fff; /* Ensure headings are white */
+    }
 
-        #backpack, #removedItems, #addItemForm {
-            margin: 20px auto;
-            padding: 20px;
-            border: 2px solid #8B4513;
-            border-radius: 10px;
-            max-width: 800px;
-            background-color: #fff;
-        }
+    #backpack, #removedItems, #addItemForm {
+        margin: 20px auto;
+        padding: 20px;
+        border: 2px solid #8B4513;
+        border-radius: 10px;
+        max-width: 800px;
+        background-color: #333; /* Darker background for contrast */
+        color: #fff; /* Text inside containers set to white */
+    }
 
-        .category {
-            margin-bottom: 20px;
-        }
+    .category {
+        margin-bottom: 20px;
+    }
 
-        .item {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 10px;
-            margin-bottom: 5px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            background-color: #f9f9f9;
-        }
+    .item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px;
+        margin-bottom: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #444; /* Darker background for items */
+        color: #fff; /* Text color for items */
+    }
 
-        .item span {
-            flex-grow: 1;
-            margin-left: 10px;
-        }
+    .item span {
+        flex-grow: 1;
+        margin-left: 10px;
+    }
 
-        .item img {
-            width: 60px;
-            height: 60px;
-            margin-right: 10px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            background-color: #fff;
-            text-align: center;
-        }
+    .item img {
+        width: 60px;
+        height: 60px;
+        margin-right: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        background-color: #fff;
+        text-align: center;
+    }
 
-        button {
-            padding: 5px 10px;
-            background-color: #ff6347;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
+    button {
+        padding: 5px 10px;
+        background-color: #ff6347;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
 
-        button:hover {
-            background-color: #ff4500;
-        }
-    </style>
+    button:hover {
+        background-color: #ff4500;
+    }
+</style>
 </head>
 <body>
     <h1>Survivalist Backpack</h1>
