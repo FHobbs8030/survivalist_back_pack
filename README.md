@@ -33,6 +33,16 @@ Here’s how the app looks with default items:
 
 *Note: Replace the image link with a screenshot of your app in action.*
 
+-This page is presently under construction for Upgrades using javaScript
+
+=========================================
+
+## Take a Look at the Project
+
+click [here](https://FHobbs8030.github.io/se_project_aroundtheus/)
+
+=========================================
+
 ---
 
 ## 🔮 Future Enhancements
