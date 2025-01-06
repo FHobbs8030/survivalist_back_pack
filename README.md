@@ -39,7 +39,7 @@ Here’s how the app looks with default items:
 
 ## Take a Look at the Project
 
-click [here](https://FHobbs8030.github.io/se_project_aroundtheus/)
+click [here](https://FHobbs8030.github.io/survivalist_back_pack/)
 
 =========================================
 
